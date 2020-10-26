@@ -1,0 +1,139 @@
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+*{ 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root, .app, html{
+  min-height: 100vh;
+  height: 100%;
+}
+
+body{
+  background-color: rgb(238, 238, 252);
+  line-height: 1.4;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  color: rgb(49, 49, 49)
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  font-size: 11px;
+  color: rgb(139, 139, 139);
+  text-align: center;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.container{
+  padding: 0 3rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.btn-submit {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 1rem;
+  margin: 1rem 0 2rem;
+  padding: 0.625rem;
+  width: 30%;
+  margin-left: 13rem;
+  border-radius: 1rem;
+}
+
+.nutrition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 0 1rem 3rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nut-form {
+  grid-column: 1/2;
+}
+
+.nut-response {
+  grid-column: 2/3;
+}
+
+.nut-title {
+  margin: 2rem 0 2rem 0
+}
+
+.text-ingr {
+  overflow: auto;
+  height: 6rem;
+  width: 20rem;
+  resize: none;
+}
+
+.form-ingr:focus::placeholder {
+  color: transparent;
+}
+
+.nut-claims {
+  background-color: #f4f3fd;
+  width: 40%;
+  padding: 5px 0.625rem 5px 0.625rem;
+  margin: 0.5rem 0 0.5rem 0;
+  min-width: 300px;
+  text-transform: capitalize;
+}
+
+.nut-nutTable {
+  background-color: #f4f3fd;
+  width: 40%;
+  padding: 5px 5px 5px 5px;
+  min-width: 300px;
+}
+
+.nut-nutTable-Saturated-row,.nut-nutTable-Monounsaturated-row ,.nut-nutTable-Polyunsaturated-row,.nut-nutTable-Cholesterol-row ,.nut-nutTable-Sodium-row ,.nut-nutTable-Calcium-row ,.nut-nutTable-Magnesium-row ,.nut-nutTable-Zinc-row ,.nut-nutTable-Potassium-row ,.nut-nutTable-Iron-row ,.nut-nutTable-Phosphorus-row ,.nut-nutTable-Vitamin.C-row,.nut-nutTable-Thiamin.B1-row ,.nut-nutTable-Riboflavin.B2-row,.nut-nutTable-Niacin.B3-row,.nut-nutTable-Vitamin.B6-row,.nut-nutTable-Folate.equivalent.total-row,.nut-nutTable-Folate.food-row,.nut-nutTable-Folic.acid-row,.nut-nutTable-Vitamin.B12-row,.nut-nutTable-Vitamin.D-row   {
+  margin: 0px 10px 0px 10px;
+  background-color: #eae7ff;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 3px;
+}
+
+.nut-nutTable-Fat-row ,.nut-nutTable-Carbs-row ,.nut-nutTable-Protein-row,.nut-nutTable-Water-row  {
+  font-weight: bold;
+  margin: 5px 5px 5px 5px;
+  background-color: #dbd6fd;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 3px;
+}
+
+.nut-nutTable-quantity {
+  padding-right: 2rem;
+  display: inline;
+  float: right;
+}
+
+.nut-nutTable-Fat,.nut-nutTable-Saturated,.nut-nutTable-Monounsaturated ,.nut-nutTable-Polyunsaturated ,.nut-nutTable-Carbs ,.nut-nutTable-Protein ,.nut-nutTable-Cholesterol ,.nut-nutTable-Sodium ,.nut-nutTable-Calcium ,.nut-nutTable-Magnesium ,.nut-nutTable-Zinc ,.nut-nutTable-Potassium ,.nut-nutTable-Iron ,.nut-nutTable-Phosphorus ,.nut-nutTable-Vitamin.C,.nut-nutTable-Thiamin.B1 ,.nut-nutTable-Riboflavin.B2,.nut-nutTable-Niacin.B3,.nut-nutTable-Vitamin.B6,.nut-nutTable-Folate.equivalent.total,.nut-nutTable-Folate.food,.nut-nutTable-Folic.acid,.nut-nutTable-Vitamin.B12,.nut-nutTable-Vitamin.D,.nut-nutTable-Water    {
+  display: inline;
+  padding-left: 2rem;
+}
+
+.badge {
+  padding-left: 10px;
+}
