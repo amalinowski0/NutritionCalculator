@@ -54,7 +54,6 @@ h1 {
   margin: 1rem 0 2rem;
   padding: 0.625rem;
   width: 30%;
-  margin-left: 13rem;
   border-radius: 1rem;
 }
 
@@ -63,15 +62,20 @@ h1 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   padding: 0 1rem 3rem 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .nut-form {
   grid-column: 1/2;
+  align-items: center;
+  justify-items: center;
 }
 
 .nut-response {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-column: 2/3;
 }
 
@@ -79,10 +83,20 @@ h1 {
   margin: 2rem 0 2rem 0
 }
 
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nut-form-label {
+  justify-items: top;
+}
+
 .text-ingr {
   overflow: auto;
-  height: 6rem;
-  width: 20rem;
+  height: 8rem;
+  width: 30rem;
   resize: none;
 }
 

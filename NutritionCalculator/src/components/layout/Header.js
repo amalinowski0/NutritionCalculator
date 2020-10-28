@@ -5,11 +5,11 @@ import '../../App.css';
 
 export default function Header() {
     return (
-        <header style={headerStl}>
+        <div className="header" style={headerStl}>
             <Link style={linkStyle} to="/">
                 <h1 style={{color: '#e85200'}}>NutritionCalculator</h1>
             </Link>
-        </header>
+        </div>
     )
 }
 
