@@ -153,12 +153,12 @@ render() {
         {this.state.submitted ?
         <div className="nut-response">
             <div className="nut-calories">
+                <span>Calories: {this.state.responseData.calories}</span>
                 <CaloriesCircle data={[
                 { name: 'Fat', value: this.state.responseData.fat.quantity },
                 { name: 'Carbs', value: this.state.responseData.carbs.quantity },
                 { name: 'Protein', value: this.state.responseData.protein.quantity },
             ]}/>
-                Calories: {this.state.responseData.calories}
             </div> 
             <div className="nut-daily">
                 Daily

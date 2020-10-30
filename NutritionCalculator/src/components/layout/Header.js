@@ -1,25 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import '../../App.css';
+import Logo from '../logo/logo.png'
 
 export default function Header() {
+
+    const refresh = () => {
+        window.location.href = window.location.href
+    }
+
     return (
-        <div className="header" style={headerStl}>
-            <Link style={linkStyle} to="/">
-                <h1 style={{color: '#e85200'}}>NutritionCalculator</h1>
-            </Link>
+        <div className="header">
+            <img className='header-logo' src={Logo} alt="HOME" width='58px' height='42px' onClick={refresh}/>
+            <div className="header-title">
+                <h1>NutritionCalculator</h1>
+            </div>
         </div>
     )
-}
-
-const headerStl = {
-    background: '#111111',
-    color: '#fff',
-    textAlign: 'center',
-    padding: '11px',
-}
-const linkStyle = {
-    color: '#fff',
-    textDecoration: 'none'
 }

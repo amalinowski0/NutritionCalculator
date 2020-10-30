@@ -35,12 +35,35 @@ body{
   margin: 0.5rem 0 0.5rem 0;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  width: 100%;
+  background: #111111;
+  color: #fff;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container{
   padding: 0 3rem;
 }
 
 h1 {
   text-align: center;
+}
+
+.header-title {
+  color: #e85200
+}
+
+.header-logo {
+  position: absolute;
+  left: 2rem;
+  cursor: pointer;
 }
 
 .btn-submit {
@@ -104,6 +127,13 @@ h1 {
   color: transparent;
 }
 
+.nut-calories {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 0 3rem 0 3rem;
+}
+
 .nut-claims {
   background-color: #f4f3fd;
   width: 40%;
@@ -151,3 +181,12 @@ h1 {
 .badge {
   padding-left: 10px;
 }
+
+
+/* TODO for responsive stuff
+@media (max-width: 700px)
+{
+  .classname {
+    np. width 100%
+  }
+} */

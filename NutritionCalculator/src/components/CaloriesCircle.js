@@ -3,8 +3,6 @@ import {
   PieChart, Pie, Cell,
 } from 'recharts';
 
-
-
 const COLORS = ['#f19d1d', '#27d62c', '#1ba3cb'];
 
 const CaloriesCircle = props =>{
@@ -12,11 +10,11 @@ const CaloriesCircle = props =>{
         data
     } = props;
     return (
-        <PieChart width={400} height={200}>
+        <PieChart width={200} height={200}>
             <Pie
             dataKey='value'
             data={data} 
-            cx={200} 
+            cx={100} 
             cy={100} 
             labelLine={false}
             label={false}
