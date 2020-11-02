@@ -12,7 +12,7 @@ export default function Header() {
         <div className="header">
             <img className='header-logo' src={Logo} alt="HOME" width='58px' height='42px' onClick={refresh}/>
             <div className="header-title">
-                <h1>NutritionCalculator</h1>
+                <h1>Welcome to Nutrition Calculator</h1>
             </div>
         </div>
     )

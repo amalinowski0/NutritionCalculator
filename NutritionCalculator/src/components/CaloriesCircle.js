@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   PieChart, Pie, Cell,
 } from 'recharts';
@@ -6,9 +6,18 @@ import {
 const COLORS = ['#f19d1d', '#27d62c', '#1ba3cb'];
 
 const CaloriesCircle = props =>{
+    //const [isOver, setIsOver] = useState(false);
     const {
         data
     } = props;
+        
+    // const handeMouseOver = () => {
+    //     setIsOver(true)
+    // }
+    // const handeMouseOut = () => {
+    //     setIsOver(false)
+    // }
+
     return (
         <PieChart width={200} height={200}>
             <Pie
@@ -23,7 +32,7 @@ const CaloriesCircle = props =>{
             paddingAngle={2}
             fill="#8884d8"
             >
-                {
+            {
                 data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
             }
             </Pie>

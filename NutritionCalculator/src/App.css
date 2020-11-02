@@ -20,7 +20,8 @@ body{
   position: relative;
   min-height: 100vh;
   font-family: 'Lato', sans-serif;
-  color: rgb(49, 49, 49)
+  color: rgb(49, 49, 49);
+  overflow-x: hidden
 }
 
 .footer {
@@ -76,30 +77,48 @@ h1 {
   font-size: 1rem;
   margin: 1rem 0 2rem;
   padding: 0.625rem;
-  width: 30%;
+  width: 15rem;
   border-radius: 1rem;
 }
 
-.nutrition {
+.nutrition-submitted {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  padding: 0 1rem 3rem 1rem;
-  margin-left: 15%;
-  margin-right: 15%;
+  padding: 3rem 1rem 3rem 1rem;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  grid-template-areas: 'form response';
+}
+.nutrition {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 3rem 1rem 3rem 1rem;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  grid-template-areas: 'form';
 }
 
 .nut-form {
   grid-column: 1/2;
+  grid-area: form;
   align-items: center;
   justify-items: center;
 }
 
 .nut-response {
+  grid-column: 2/3;
+  grid-area: response;
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-column: 2/3;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nut-title {
@@ -123,15 +142,27 @@ h1 {
   resize: none;
 }
 
+.text-ingr-submitted{
+  height: 8rem;
+  width: 30rem;
+  resize: none;
+  animation: textareaExit 2s ease forwards 1s;
+}
+
 .form-ingr:focus::placeholder {
   color: transparent;
 }
 
 .nut-calories {
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   padding: 0 3rem 0 3rem;
+}
+
+.nut-calories-text {
+  font-weight: bold;
+  text-align: center;
 }
 
 .nut-claims {
@@ -147,10 +178,10 @@ h1 {
   background-color: #f4f3fd;
   width: 40%;
   padding: 5px 5px 5px 5px;
-  min-width: 300px;
+  min-width: 320px;
 }
 
-.nut-nutTable-Saturated-row,.nut-nutTable-Monounsaturated-row ,.nut-nutTable-Polyunsaturated-row,.nut-nutTable-Cholesterol-row ,.nut-nutTable-Sodium-row ,.nut-nutTable-Calcium-row ,.nut-nutTable-Magnesium-row ,.nut-nutTable-Zinc-row ,.nut-nutTable-Potassium-row ,.nut-nutTable-Iron-row ,.nut-nutTable-Phosphorus-row ,.nut-nutTable-Vitamin.C-row,.nut-nutTable-Thiamin.B1-row ,.nut-nutTable-Riboflavin.B2-row,.nut-nutTable-Niacin.B3-row,.nut-nutTable-Vitamin.B6-row,.nut-nutTable-Folate.equivalent.total-row,.nut-nutTable-Folate.food-row,.nut-nutTable-Folic.acid-row,.nut-nutTable-Vitamin.B12-row,.nut-nutTable-Vitamin.D-row   {
+.nut-nutTable-Saturated-row,.nut-nutTable-Monounsaturated-row ,.nut-nutTable-Polyunsaturated-row,.nut-nutTable-Cholesterol-row ,.nut-nutTable-Sodium-row ,.nut-nutTable-Calcium-row ,.nut-nutTable-Magnesium-row ,.nut-nutTable-Zinc-row ,.nut-nutTable-Potassium-row ,.nut-nutTable-Iron-row ,.nut-nutTable-Phosphorus-row ,.nut-nutTable-Vitamin.C-row,.nut-nutTable-Thiamin.B1-row ,.nut-nutTable-Riboflavin.B2-row,.nut-nutTable-Niacin.B3-row,.nut-nutTable-Vitamin.B6-row,.nut-nutTable-Folate.equivalent.total-row,.nut-nutTable-Folate.food-row,.nut-nutTable-Folic.acid-row,.nut-nutTable-Vitamin.B12-row,.nut-nutTable-Vitamin.D-row,.nut-nutTable-Trans-row,.nut-nutTable-Fiber-row,.nut-nutTable-Sugars-row,.nut-nutTable-Vitamin.A-row,.nut-nutTable-Vitamin.E-row,.nut-nutTable-Vitamin.K-row{
   margin: 0px 10px 0px 10px;
   background-color: #eae7ff;
   padding-top: 3px;
@@ -173,7 +204,7 @@ h1 {
   float: right;
 }
 
-.nut-nutTable-Fat,.nut-nutTable-Saturated,.nut-nutTable-Monounsaturated ,.nut-nutTable-Polyunsaturated ,.nut-nutTable-Carbs ,.nut-nutTable-Protein ,.nut-nutTable-Cholesterol ,.nut-nutTable-Sodium ,.nut-nutTable-Calcium ,.nut-nutTable-Magnesium ,.nut-nutTable-Zinc ,.nut-nutTable-Potassium ,.nut-nutTable-Iron ,.nut-nutTable-Phosphorus ,.nut-nutTable-Vitamin.C,.nut-nutTable-Thiamin.B1 ,.nut-nutTable-Riboflavin.B2,.nut-nutTable-Niacin.B3,.nut-nutTable-Vitamin.B6,.nut-nutTable-Folate.equivalent.total,.nut-nutTable-Folate.food,.nut-nutTable-Folic.acid,.nut-nutTable-Vitamin.B12,.nut-nutTable-Vitamin.D,.nut-nutTable-Water    {
+.nut-nutTable-Fat,.nut-nutTable-Saturated,.nut-nutTable-Monounsaturated ,.nut-nutTable-Polyunsaturated ,.nut-nutTable-Carbs ,.nut-nutTable-Protein ,.nut-nutTable-Cholesterol ,.nut-nutTable-Sodium ,.nut-nutTable-Calcium ,.nut-nutTable-Magnesium ,.nut-nutTable-Zinc ,.nut-nutTable-Potassium ,.nut-nutTable-Iron ,.nut-nutTable-Phosphorus ,.nut-nutTable-Vitamin.C,.nut-nutTable-Thiamin.B1 ,.nut-nutTable-Riboflavin.B2,.nut-nutTable-Niacin.B3,.nut-nutTable-Vitamin.B6,.nut-nutTable-Folate.equivalent.total,.nut-nutTable-Folate.food,.nut-nutTable-Folic.acid,.nut-nutTable-Vitamin.B12,.nut-nutTable-Vitamin.D,.nut-nutTable-Water,.nut-nutTable-Trans,.nut-nutTable-Fiber,.nut-nutTable-Sugars,.nut-nutTable-Vitamin.A,.nut-nutTable-Vitamin.E,.nut-nutTable-Vitamin.K    {
   display: inline;
   padding-left: 2rem;
 }
@@ -183,10 +214,102 @@ h1 {
 }
 
 
-/* TODO for responsive stuff
+@media (max-width: 1300px)
+{
+  .header {
+     height: 4.5rem;
+  }
+  .nutrition, .nutrition-submitted {
+    margin: 0 5vh;
+  }
+}
+@media (max-width: 1000px)
+{
+  .header {
+    height: 4rem;
+ }
+  .text-ingr, .text-ingr-submitted{
+    width: 25rem;
+  }
+}
+@media (max-width: 900px)
+{
+  .nutrition, .nutrition-submitted{
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'form' 'response';
+  }   
+}
+
 @media (max-width: 700px)
 {
-  .classname {
-    np. width 100%
+  /*header*/
+  .header {
+    height: 3.5rem;
+ }
+  .header-title {
+    display: none;
   }
-} */
+  .text-ingr, .text-ingr-submitted{
+    width: 20rem;
+  }
+}
+
+@keyframes textareaExit{
+    0%{
+      opacity: 1;
+    }
+    25%{
+      opacity: 0.75;
+    }
+    50%{
+      opacity: 0.5;
+    }
+    75%{
+      opacity: 0.25;
+    }
+    100%{
+      display: none;
+      opacity: 0;
+      height: 0;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.loader > span {
+  background-color: purple;
+  border-radius: 50%;
+  margin: 5rem 0.6rem;
+  animation: bouncingLoader 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+  background-color:hotpink;
+  animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+  background-color: darkorange;
+  animation-delay: 0.4s;
+}
+
+@keyframes bouncingLoader {
+  from {
+    width: 0.1rem;
+    height: 0.1rem;
+    opacity: 1;
+    transform: translate3d(0);
+  }
+  to {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
