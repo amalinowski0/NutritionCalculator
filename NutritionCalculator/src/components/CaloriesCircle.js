@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   PieChart, Pie, Cell,
 } from 'recharts';
@@ -29,7 +29,7 @@ const CaloriesCircle = props =>{
             label={false}
             innerRadius={40}
             outerRadius={80}
-            paddingAngle={2}
+            paddingAngle={1}
             fill="#8884d8"
             >
             {
