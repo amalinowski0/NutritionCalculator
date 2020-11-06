@@ -15,7 +15,7 @@
 }
 
 body{
-  background-color: rgb(238, 238, 252);
+  background-color: #272727;
   line-height: 1.4;
   position: relative;
   min-height: 100vh;
@@ -42,8 +42,10 @@ body{
   top: 0;
   z-index: 150;
   width: 100%;
-  background: #111111;
-  color: #fff;
+  background: rgba(0, 0, 0, .70) url(components/layout/header_bg.jpg);
+  background-size: cover;
+  background-position:  -3rem center;
+  background-blend-mode: hue;
   height: 5rem;
   display: flex;
   align-items: center;
@@ -59,18 +61,18 @@ h1 {
 }
 
 .header-title {
-  color: #e85200
+  color: #ff652f
 }
 
 .header-logo {
   position: absolute;
-  left: 2rem;
+  left: 1.5rem;
   cursor: pointer;
 }
 
 .btn-submit {
   cursor: pointer;
-  background-color: #9c88ff;
+  background-color: #14a76c;
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
@@ -83,14 +85,14 @@ h1 {
 }
 
 .btn-submit:hover {
-  background-color: #8574db;
+  background-color: #0f7c50;
 }
 
 .nutrition-submitted {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 3rem 1rem;
   margin-left: 10vh;
   margin-right: 10vh;
   grid-template-areas: 'form response';
@@ -99,10 +101,35 @@ h1 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 3rem 1rem;
   margin-left: 10vh;
   margin-right: 10vh;
   grid-template-areas: 'form';
+}
+
+.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background: #858585 url('./components/videos/cover.png') no-repeat center center/cover;
+  z-index: -1;
+}
+
+/* .video-container video {
+
+} */
+
+.video-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .nut-form {
@@ -127,7 +154,8 @@ h1 {
 }
 
 .nut-title {
-  margin: 2rem 0 2rem 0
+  margin: 2rem 0 2rem 0;
+  color: #858585;
 }
 
 .search-form {
@@ -138,6 +166,7 @@ h1 {
 
 .nut-form-label {
   justify-items: top;
+  color: #858585;
 }
 
 .text-ingr {
@@ -168,6 +197,11 @@ h1 {
 .nut-calories-text {
   font-weight: bold;
   text-align: center;
+  color: #858585
+}
+
+.nut-daily {
+  color: #858585
 }
 
 .nut-claims {
@@ -177,17 +211,18 @@ h1 {
   margin: 0.5rem 0 0.5rem 0;
   min-width: 300px;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .nut-nutTable {
   background-color: #f4f3fd;
   width: 40%;
-  padding: 5px 5px 5px 5px;
-  min-width: 320px;
+  padding: 5px;
+  min-width: 300px;
 }
 
 .nut-nutTable-row-fats{
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px;
   background-color: #eae7ff;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -196,7 +231,7 @@ h1 {
 }
 
 .nut-nutTable-row-carbs{
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px;
   background-color: #eae7ff;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -205,7 +240,7 @@ h1 {
 }
 
 .nut-nutTable-row-protein{
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px;
   background-color: #eae7ff;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -215,7 +250,7 @@ h1 {
 
 .nut-nutTable-Fat-row ,.nut-nutTable-Carbs-row ,.nut-nutTable-Protein-row,.nut-nutTable-Water-row  {
   font-weight: bold;
-  margin: 5px 5px 5px 5px;
+  margin: 5px;
   background-color: #dbd6fd;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -228,14 +263,14 @@ h1 {
 }
 
 .nut-nutTable-quantity {
-  padding-right: 2rem;
+  padding-right: 1.5rem;
   display: inline;
   float: right;
 }
 
 .nut-nutTable-label   {
   display: inline;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 
 .badge {
@@ -247,20 +282,24 @@ h1 {
 {
   .header {
      height: 4.5rem;
+     font-size: 15px;
   }
   .nutrition, .nutrition-submitted {
     margin: 0 5vh;
   }
 }
+
 @media (max-width: 1000px)
 {
   .header {
     height: 4rem;
+    font-size: 14px;
  }
   .text-ingr, .text-ingr-submitted{
     width: 25rem;
   }
 }
+
 @media (max-width: 900px)
 {
   .nutrition, .nutrition-submitted{
@@ -281,6 +320,17 @@ h1 {
   }
   .text-ingr, .text-ingr-submitted{
     width: 20rem;
+  }
+}
+@media (max-width: 400px)
+{
+  .nutrition, .nutrition-submitted{
+    padding: 0;
+    padding-bottom: 3rem;
+  }  
+  .video-container video {
+    height: min-content;
+    width: min-content;
   }
 }
 

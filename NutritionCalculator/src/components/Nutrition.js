@@ -149,7 +149,6 @@ render() {
                         <span>{`${this.state.responseData.dietLabels} | `}
                         {this.state.responseData.healthLabels}</span>
                     </div>
-                    {/* {this.NutTable()} */}
                     <Dropdown items={this.state.responseData.totalNutrients} />
                 </div>  
             : <div className="loader" ref = {this.loader_ref}>

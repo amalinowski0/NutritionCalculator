@@ -36,7 +36,7 @@ export default function Dropdown({items = []}) {
         let nutArray = items
         for(let i = 0;i<nutArray.length;i++)
         {
-            nutArray[i].label = nutArray[i].label.replace(/[()]/g,'')
+            nutArray[i].label = nutArray[i].label.replace(/[(),]/g,'')
             if(nutArray[i].quantity === 0){ 
                 nutArray[i].quantity = '-'
                 nutArray[i].unit = ''
