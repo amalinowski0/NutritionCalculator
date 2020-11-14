@@ -3,20 +3,12 @@ import {
   PieChart, Pie, Cell,
 } from 'recharts';
 
-const COLORS = ['#f19d1d', '#27d62c', '#1ba3cb'];
+const COLORS = ['#ff652f', '#22ba26', '#1a98bd'];
 
 const CaloriesCircle = props =>{
-    //const [isOver, setIsOver] = useState(false);
     const {
         data
     } = props;
-        
-    // const handeMouseOver = () => {
-    //     setIsOver(true)
-    // }
-    // const handeMouseOut = () => {
-    //     setIsOver(false)
-    // }
 
     return (
         <PieChart width={200} height={200}>
@@ -29,7 +21,6 @@ const CaloriesCircle = props =>{
             label={false}
             innerRadius={40}
             outerRadius={80}
-            paddingAngle={1}
             fill="#8884d8"
             >
             {

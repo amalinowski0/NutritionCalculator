@@ -14,14 +14,14 @@
   height: 100%;
 }
 
-body{
+body {
   background-color: #272727;
   line-height: 1.4;
   position: relative;
   min-height: 100vh;
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
   color: rgb(49, 49, 49);
-  overflow-x: hidden
 }
 
 .footer {
@@ -35,39 +35,48 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 3rem;
+}
+
+.footer > a {
+  margin-left: 5px;
+  color: #ffe400;
+}
+
+.footer > p {
+  text-align: center;
+}
+
+.badge {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 26px;
 }
 
 .header {
   position: sticky;
   top: 0;
-  z-index: 150;
+  z-index: 15;
   width: 100%;
-  background: rgba(0, 0, 0, .70) url(components/layout/header_bg.jpg);
-  background-size: cover;
-  background-position:  -3rem center;
-  background-blend-mode: hue;
   height: 5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  animation: headerShow 1s ease-in-out forwards
 }
 
-.container{
-  padding: 0 3rem;
-}
-
-h1 {
-  text-align: center;
-}
-
-.header-title {
-  color: #ff652f
+.header.faded { 
+  animation: headerFade 1s ease-in-out forwards
 }
 
 .header-logo {
   position: absolute;
   left: 1.5rem;
   cursor: pointer;
+  transition: transform 0.6s ease-in-out;
+}
+
+.header-logo:hover{
+  transform: rotate3d(0,1,0.5,360deg);
 }
 
 .btn-submit {
@@ -78,7 +87,6 @@ h1 {
   border: 0;
   display: block;
   font-size: 1rem;
-  margin: 1rem 0 2rem;
   padding: 0.625rem;
   width: 15rem;
   border-radius: 1rem;
@@ -88,23 +96,19 @@ h1 {
   background-color: #0f7c50;
 }
 
-.nutrition-submitted {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  padding: 3rem 1rem;
-  margin-left: 10vh;
-  margin-right: 10vh;
-  grid-template-areas: 'form response';
-}
 .nutrition {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  padding: 3rem 1rem;
+  grid-template-rows: 10rem 1fr;
   margin-left: 10vh;
   margin-right: 10vh;
-  grid-template-areas: 'form';
+  grid-template-areas: 'title title' 'form form';
+  padding-bottom: 3rem;
+}
+
+.nutrition.submitted {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'title title' 'form response';
 }
 
 .video-container {
@@ -114,13 +118,9 @@ h1 {
   left: 0;
   top: 0;
   overflow: hidden;
-  background: #858585 url('./components/videos/cover.png') no-repeat center center/cover;
+  background: #b8b8b8 url('./components/videos/cover.png') no-repeat center center/cover;
   z-index: -1;
 }
-
-/* .video-container video {
-
-} */
 
 .video-container::after {
   content: '';
@@ -132,11 +132,110 @@ h1 {
   background: rgba(0, 0, 0, 0.9);
 }
 
+.bg_video{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(0.2);
+}
+
+.bg_video.hidden {
+  opacity: 0;
+  filter: brightness(0.3);
+  transition: all, 2s ease-in-out;
+}
+
+.bg_video.shown {
+  opacity: 1;
+  filter: brightness(1);
+  transition: all, 2s ease-in-out;
+}
+
+.line-divider {
+  margin: 2px 0;
+  height: 3px;
+  width: 100%;
+}
+
+.line-divider > rect {
+  color: #272727;
+  height: 3px;
+  width: 100%;
+}
+
+.nut-title {
+  text-align: center;
+  margin: 1rem 0;
+  color: #b8b8b8;
+  grid-area: title;
+}
+
 .nut-form {
   grid-column: 1/2;
   grid-area: form;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nut-form-label {
+  color: #b8b8b8;
+  margin-bottom: 0.5rem;
+}
+
+.nut-form-label.hidden {
+  animation: labelHide 1s ease-in forwards 1s;
+}
+
+.text-ingr {
+  overflow: auto;
+  height: 8rem;
+  width: 30rem;
+  resize: none;
+  font-size: large;
+  margin-bottom: 1rem;
+}
+
+.text-ingr.submitted{
+  animation: textareaHide 1.5s ease-in forwards 1.5s;
+}
+
+.text-ingr:focus::placeholder {
+  color: transparent;
+}
+
+.nut-ingredient-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f3fd;
+  width: 40%;
+  min-width: 300px;
+  padding: 0.5rem;
+  visibility: hidden;
+  animation: ingredientsShow 1s ease forwards 3s;
+}
+
+.nut-ingredient-list-title {
+  font-weight: bold;
+}
+
+.nut-ingredient-list-content {
+  display: flex;
+  justify-content: center;
+  background-color: #e3e0fa;
+  padding: 4px 6px;
+  margin-top: 4px;
 }
 
 .nut-response {
@@ -153,65 +252,53 @@ h1 {
   align-items: center;
 }
 
-.nut-title {
-  margin: 2rem 0 2rem 0;
-  color: #858585;
-}
-
-.search-form {
+.nut-calories {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  color: #b8b8b8;
 }
 
-.nut-form-label {
-  justify-items: top;
-  color: #858585;
-}
-
-.text-ingr {
-  overflow: auto;
-  height: 8rem;
-  width: 30rem;
-  resize: none;
-}
-
-.text-ingr-submitted{
-  height: 8rem;
-  width: 30rem;
-  resize: none;
-  animation: textareaExit 2s ease forwards 1s;
-}
-
-.form-ingr:focus::placeholder {
-  color: transparent;
-}
-
-.nut-calories {
+.nut-calories-chart {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 3rem 0 3rem;
+}
+
+.nut-calories-labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nut-calories-labels > p {
+  margin-right: 0.375rem;
+  margin-left: 0.375rem;
+}
+.nut-calories-labels > svg {
+  margin-left: 0.375rem;
 }
 
 .nut-calories-text {
   font-weight: bold;
   text-align: center;
-  color: #858585
-}
-
-.nut-daily {
-  color: #858585
+  color: #b8b8b8
 }
 
 .nut-claims {
+  display: flex;
+  flex-direction: column;
   background-color: #f4f3fd;
   width: 40%;
-  padding: 5px 0.625rem 5px 0.625rem;
-  margin: 0.5rem 0 0.5rem 0;
+  padding: 5px 0.625rem;
+  margin: 0.5rem 0;
+  margin-top: 2rem;
   min-width: 300px;
   text-transform: capitalize;
-  text-align: center;
+}
+
+.nut-claims-title {
+  margin-right: auto;
+  font-weight: bold;
 }
 
 .nut-nutTable {
@@ -221,51 +308,37 @@ h1 {
   min-width: 300px;
 }
 
-.nut-nutTable-row-fats{
+.nut-nutTable-row{
+  min-height: 2rem;
   margin: 0px 10px;
-  background-color: #eae7ff;
+  background-color: #e3e0fa;
   padding-top: 3px;
   padding-bottom: 3px;
   border-radius: 3px;
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
-.nut-nutTable-row-carbs{
-  margin: 0px 10px;
-  background-color: #eae7ff;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 3px;
-  display: block;
-}
-
-.nut-nutTable-row-protein{
-  margin: 0px 10px;
-  background-color: #eae7ff;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 3px;
-  display: block;
-}
-
-.nut-nutTable-Fat-row ,.nut-nutTable-Carbs-row ,.nut-nutTable-Protein-row,.nut-nutTable-Water-row  {
+.nut-nutTable-row.Fat, .nut-nutTable-row.Carbs, .nut-nutTable-row.Protein, .nut-nutTable-row.Water{
+  min-height: 2.25rem;
   font-weight: bold;
   margin: 5px;
-  background-color: #dbd6fd;
+  background-color: #d6d0fd;
   padding-top: 3px;
   padding-bottom: 3px;
   border-radius: 3px;
 }
 
-.nut-nutTable-Fat-row:hover ,.nut-nutTable-Carbs-row:hover ,.nut-nutTable-Protein-row:hover {
-  filter: brightness(0.8);
+.nut-nutTable-row.Fat:hover ,.nut-nutTable-row.Carbs:hover ,.nut-nutTable-row.Protein:hover {
+  background-color: #ada1fd;
   cursor: pointer;
 }
 
 .nut-nutTable-quantity {
-  padding-right: 1.5rem;
-  display: inline;
-  float: right;
+  display: flex;
+  align-items: center;
+  padding-right: 0.75rem;
+  margin-left: auto;
 }
 
 .nut-nutTable-label   {
@@ -273,10 +346,37 @@ h1 {
   padding-left: 1.5rem;
 }
 
-.badge {
-  padding-left: 10px;
+.nutTable-row_arrow {
+  margin: 0 0.75rem
 }
 
+.nutTable-row_arrow.rotate {
+  transform: rotate(-180deg);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.loader > span {
+  background-color: #14a76c;
+  border-radius: 50%;
+  margin: 5rem 0.6rem;
+  animation: bouncingLoader 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+  background-color:#ffe400;
+  animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+  background-color: #ff652f;
+  animation-delay: 0.4s;
+}
 
 @media (max-width: 1300px)
 {
@@ -284,7 +384,7 @@ h1 {
      height: 4.5rem;
      font-size: 15px;
   }
-  .nutrition, .nutrition-submitted {
+  .nutrition, .nutrition.submitted {
     margin: 0 5vh;
   }
 }
@@ -295,46 +395,62 @@ h1 {
     height: 4rem;
     font-size: 14px;
  }
-  .text-ingr, .text-ingr-submitted{
+  .text-ingr, .text-ingr.submitted{
     width: 25rem;
   }
 }
 
 @media (max-width: 900px)
 {
-  .nutrition, .nutrition-submitted{
+  .nutrition, .nutrition.submitted{
     margin: 0;
-    grid-template-columns: 1fr;
-    grid-template-areas: 'form' 'response';
-  }   
+  }
 }
 
 @media (max-width: 700px)
 {
-  /*header*/
+  .nutrition, .nutrition.submitted{
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title' 'form' 'response';
+    row-gap: 2rem;
+  }   
+  .nutrition {
+    grid-template-areas: 'title' 'form';
+  }
   .header {
     height: 3.5rem;
  }
   .header-title {
     display: none;
   }
-  .text-ingr, .text-ingr-submitted{
+  .text-ingr, .text-ingr.submitted{
     width: 20rem;
+  }
+  .footer {
+    padding: 0 0.5rem;
   }
 }
 @media (max-width: 400px)
 {
-  .nutrition, .nutrition-submitted{
+  .nutrition, .nutrition.submitted{
     padding: 0;
     padding-bottom: 3rem;
   }  
-  .video-container video {
-    height: min-content;
-    width: min-content;
+  .text-ingr, .text-ingr.submitted{
+    width: 16rem;
+  }
+  .btn-submit {
+    width: 12rem;
+  }
+  .header-logo{
+    left: 1rem
+  }
+  .badge {
+    height: 20px;
   }
 }
 
-@keyframes textareaExit{
+@keyframes textareaHide{
     0%{
       opacity: 1;
     }
@@ -348,34 +464,52 @@ h1 {
       opacity: 0.25;
     }
     100%{
-      display: none;
+      visibility: hidden;
       opacity: 0;
       height: 0;
+      width: 0;
+      margin-bottom: 0;
   }
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+@keyframes labelHide{
+  from{
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-.loader > span {
-  background-color: purple;
-  border-radius: 50%;
-  margin: 5rem 0.6rem;
-  animation: bouncingLoader 0.6s infinite alternate;
+@keyframes headerFade {
+  from {
+    opacity: 1;
+  }
+  to { 
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-.loader > span:nth-child(2) {
-  background-color:hotpink;
-  animation-delay: 0.2s;
+@keyframes headerShow {
+  from {
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-.loader > span:nth-child(3) {
-  background-color: darkorange;
-  animation-delay: 0.4s;
+@keyframes ingredientsShow {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 @keyframes bouncingLoader {
@@ -388,7 +522,7 @@ h1 {
   to {
     width: 1rem;
     height: 1rem;
-    opacity: 0.5;
+    opacity: 0.6;
     transform: translate3d(0, -1rem, 0);
   }
 }
