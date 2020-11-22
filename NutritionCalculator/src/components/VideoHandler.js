@@ -31,8 +31,7 @@ export default function VideoHandler() {
     }
 
 //TODO: 
-//colors/done?|tables?/, text do tytułu, help do recipe'a i moze table'a
-// alerts /CHECK |maybe change styles/, edit movies,
+// alerts /CHECK | maybe change styles/,
     return (
         <div className="video-container">
             <video src={urls[urlindex]}
