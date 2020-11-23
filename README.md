@@ -3,7 +3,7 @@ An application that lets You calculate the nutrition values of Your meal given t
 A project created to learn React and its various tools.
 
 ## Demo
-(https://jolly-benz-ce10d6.netlify.app/)
+https://jolly-benz-ce10d6.netlify.app/
 
 ### Built with
 - React
