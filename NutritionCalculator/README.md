@@ -9,7 +9,7 @@ A project created to learn React and its various tools.
 - React
 - React Hooks
 - Axios
-- CSS3
+- CSS3  
 The project is using the API provided by [EDAMAM](https://developer.edamam.com/).
 
 ### How to use? 
